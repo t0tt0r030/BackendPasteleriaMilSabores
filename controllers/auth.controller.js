@@ -2,9 +2,10 @@ const Registro = require('../model/Registro');
 
 // registrar un nuevo usuario
 exports.registerUser = async (req, res) => {
+    console.log('BODY:', req.body);
     try {
-        const { usuario, email, contrasena } = req.body;
-        const newUser = new Registro({ usuario, email, contrasena });
+        const { usuario, email, contrasena, fechaNacimiento } = req.body;
+        const newUser = new Registro({ usuario, email, contrasena, fechaNacimiento });
         await newUser.save();
         res.status(201).json({ message: 'Usuario registrado exitosamente', user: newUser });
     }   catch (error) {             

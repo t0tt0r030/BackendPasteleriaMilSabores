@@ -12,6 +12,10 @@ const registroSchema = new mongoose.Schema({
         type: String,   
         required: [true , 'La contraseña es obligatoria']   
     },
+    fechaNacimiento: {
+        type: Date,   
+        required: [true , 'La fecha de nacimiento es obligatoria']   
+    },
     fechaRegistro: {
         type: Date,
         default: Date.now

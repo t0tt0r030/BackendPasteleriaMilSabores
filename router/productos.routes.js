@@ -6,7 +6,7 @@ router.get('/pasteleriaMilSabores', productosController.obtenerInfoPasteleriaMil
 
 // CRUDDD
 router.get('/productos', productosController.getAllProducts);
-router.post('/productos', productosController.addNewProduct);
+router.post('/productos/nuevoProducto', productosController.addNewProduct);
 router.put('/productos/:id', productosController.updateProductById);
 router.delete('/productos/:id', productosController.deleteProductById);
 
