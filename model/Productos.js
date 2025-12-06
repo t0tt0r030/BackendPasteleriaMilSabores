@@ -22,4 +22,5 @@ const ProductoSchema = new mongoose.Schema({
         required: [true , 'El stock del producto es obligatorio']   
     }
 }, { timestamps: true });
+
 module.exports = mongoose.model('Producto', ProductoSchema);
