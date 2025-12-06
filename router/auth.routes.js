@@ -6,6 +6,7 @@ router.get('/pasteleriaMilSabores', authController.obtenerInfoPasteleriaMilSabor
 
 router.get('/usuarios', authController.getAllUsers);
 router.post('/usuarios/registro', authController.registerUser);
+router.put('/usuarios/:id', authController.updateUserById);
 router.delete('/usuarios/:id', authController.deleteUserById);
 
 module.exports = router;

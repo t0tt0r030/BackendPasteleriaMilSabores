@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');//seguridad
 const connectDB = require('./config/database');
-const productoaRoutes = require('./router/productos.routes');
+const productoRoutes = require('./router/productos.routes');
 const authRoutes = require('./router/auth.routes');
 
 //nuevo por BD
@@ -28,14 +28,14 @@ app.get('/', (req, res) => {
     res.json({
         mensaje:'Bienvenido a la API de la Pastelería Mil Sabores',
         endpoints:{
-            productos:'GET /api/productos/productos',
-            usuarios:'GET /api/auth/usuarios',
+            productos:'/api/pasteleriaMilSabores/productos',
+            usuarios:'/api/pasteleriaMilSabores/auth/usuarios',
         }
     });   
 });
 // Rutas de la pastelería Mil Sabores
-app.use('/api/productos', productoaRoutes);
-app.use('/api/auth', authRoutes);
+app.use('/api/pasteleriaMilSabores/productos', productoRoutes);
+app.use('/api/pasteleriaMilSabores/auth', authRoutes);
 
 // Iniciar servidor
 app.listen(PORT, () => {

@@ -22,6 +22,30 @@ exports.getAllUsers = async (req, res) => {
     }   
 };      
 
+exports.updateUserById = async (req, res) => {
+    try {
+        const { id } = req.params;
+
+        const updatedUser = await Registro.findByIdAndUpdate(
+            id,
+            req.body,
+            { new: true }
+        );
+
+        if (!updatedUser) {
+            return res.status(404).json({ message: 'Usuario no encontrado' });
+        }
+
+        res.status(200).json({
+            message: 'Usuario actualizado exitosamente',
+            user: updatedUser
+        });
+
+    } catch (error) {       
+        res.status(500).json({ message: 'Error al actualizar el usuario', error });
+    }   
+};
+
 // eliminar un usuario por ID
 exports.deleteUserById = async (req, res) => {
     try {           
