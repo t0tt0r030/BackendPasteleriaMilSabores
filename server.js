@@ -17,11 +17,17 @@ const PORT = process.env.PORT || 3001;
 connectDB();
 
 app.use(cors({
-    origin: 'https://localhost:3000', // Reemplaza con el origen permitido
+    origin: ["http://localhost:3000", "http://127.0.0.1:3000"],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type"]
 }));
+
+
+app.use(express.json());
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true })); 
+
 
 // Rutas de bienbenida
 app.get('/', (req, res) => {
@@ -40,5 +46,5 @@ app.use('/api/pasteleriaMilSabores/auth', authRoutes);
 // Iniciar servidor
 app.listen(PORT, () => {
   console.log(` Servidor backend corriendo en http://localhost:${PORT}`);
-  console.log(` API disponible en http://localhost:${PORT}/api/curriculum`);
+  console.log(` API disponible en http://localhost:${PORT}/api/pasteleriaMilSabores`);
 });
